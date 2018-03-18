@@ -12,12 +12,15 @@ import { SpotifyUserService } from 'app/spotify/spotify-user.service';
 import { SpotifyHomeComponent } from './spotify-home/spotify-home.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { SpotifyTrackItemComponent } from './spotify-track-item/spotify-track-item.component';
+import { SpotifyAudioPreviewModule } from './spotify-audio-preview/spotify-audio-preview.module';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
         RouterModule,
+
+        SpotifyAudioPreviewModule,
 
         FlexLayoutModule,
         MatCardModule,

@@ -1,3 +1,4 @@
+import { SpotifyAudioPreviewService } from './../spotify-audio-preview/spotify-audio-preview.service';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { QueueService } from 'app/api';
@@ -13,7 +14,6 @@ import { Subject } from 'rxjs/Subject';
 })
 export class SpotifyTrackItemComponent implements OnInit, OnDestroy {
 
-
   @Input() trackContainer;
 
   private _isQueued = false;
@@ -21,7 +21,8 @@ export class SpotifyTrackItemComponent implements OnInit, OnDestroy {
   private _destroyed$: Subject<any> = new Subject<any>();
 
   constructor (
-    private _queueService: QueueService
+    private _queueService: QueueService,
+    private _spotifyAudioPreviewService: SpotifyAudioPreviewService
   ) { }
 
   ngOnInit () {
@@ -60,6 +61,11 @@ export class SpotifyTrackItemComponent implements OnInit, OnDestroy {
           // (Namely the current user's name, and cross-reference it to the currently playing + queued list...)
           this._isQueued = true;
         });
+  }
+
+  playPreview () {
+    this._spotifyAudioPreviewService.previewTrack(this.track);
+
   }
 
   // TODO

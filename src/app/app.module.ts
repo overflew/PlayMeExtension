@@ -30,6 +30,7 @@ import { AppComponent } from './app.component';
 import { MatSidenavModule } from '@angular/material';
 import { SpotifyModule } from './spotify/spotify.module';
 import { environment } from './environment';
+import { SpotifyAudioPreviewModule } from './spotify/spotify-audio-preview/spotify-audio-preview.module';
 
 Raven
   .config('https://4a8c4ab293924b68b0826a87a1d93b06@sentry.io/287934', {
@@ -59,7 +60,8 @@ export class RavenErrorHandler implements ErrorHandler {
         MatSidenavModule,
         HttpClientModule,
         LikesModule,
-        SpotifyModule
+        SpotifyModule,
+        SpotifyAudioPreviewModule
     ],
     declarations: [
         AppComponent

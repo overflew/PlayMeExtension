@@ -46,10 +46,18 @@
 		</div>
 	</div>
 
+  <button
+    *ngIf="track.preview_url"
+    (click)="playPreview()"
+    mat-icon-button >
+    <mat-icon>headset</mat-icon>
+  </button>
+
 	<div
 		class="track-item__col track-item--hover-fade-in"
 		fxFlex="none"
-		*ngIf="!isAlreadyQueued">
+    *ngIf="!isAlreadyQueued">
+
 		<button mat-icon-button [matMenuTriggerFor]="menu">
 			<mat-icon>more_vert</mat-icon>
 		</button>
